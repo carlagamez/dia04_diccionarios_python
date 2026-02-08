@@ -1,0 +1,347 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Día 4 — Diccionarios en Python\n",
+        "\n",
+        "En este día aprenderé:\n",
+        "\n",
+        "- Qué es un diccionario\n",
+        "- Cómo guardar datos con clave y valor\n",
+        "- Cómo acceder y modificar información\n",
+        "- Crear un perfil de usuario simple\n",
+        "\n",
+        "Reto: 100 días aprendiendo a programar  \n",
+        "Día: 4/100"
+      ],
+      "metadata": {
+        "id": "7USvIQyrPI4D"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Diccionarios\n",
+        "\n",
+        "Un diccionario es una estructura de datos que guarda información en pares\n",
+        "clave : valor.\n",
+        "\n",
+        "Sirve para representar datos reales como:\n",
+        "- una persona\n",
+        "- un usuario\n",
+        "- un producto\n",
+        "\n",
+        "Se escriben entre llaves {}."
+      ],
+      "metadata": {
+        "id": "tWDRlVZvPTrN"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "persona = {\n",
+        "    \"nombre\": \"Carla\",\n",
+        "    \"edad\": 30,\n",
+        "    \"ciudad\": \"Barcelona\"\n",
+        "}\n",
+        "\n",
+        "print(persona)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "26TC6XBAPQpo",
+        "outputId": "4ad31d33-9d86-4ebd-c4a5-e41e554dd18a"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'nombre': 'Carla', 'edad': 30, 'ciudad': 'Barcelona'}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Explicación\n",
+        "\n",
+        "He creado un diccionario llamado `persona` con tres claves:\n",
+        "- nombre\n",
+        "- edad\n",
+        "- ciudad\n",
+        "\n",
+        "Cada clave tiene un valor asociado."
+      ],
+      "metadata": {
+        "id": "1EQfNiQJP4CB"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(persona[\"nombre\"])\n",
+        "print(persona[\"edad\"])\n",
+        "print(persona[\"ciudad\"])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QatEdvOjP8AU",
+        "outputId": "1b1f4197-7c6f-4064-9e89-62c9e26e8bdf"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Carla\n",
+            "30\n",
+            "Barcelona\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Acceder a valores\n",
+        "\n",
+        "Para acceder a un valor uso el nombre del diccionario\n",
+        "y la clave entre corchetes."
+      ],
+      "metadata": {
+        "id": "rosNZOhCQLLD"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "persona[\"edad\"] = 31\n",
+        "persona[\"profesion\"] = \"Futura desarrolladora\"\n",
+        "\n",
+        "print(persona)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "iAkumi5gQJ_K",
+        "outputId": "e2eeb0dd-80a7-43d3-e081-26294f818725"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'nombre': 'Carla', 'edad': 31, 'ciudad': 'Barcelona', 'profesion': 'Futura desarrolladora'}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Modificar y añadir información\n",
+        "\n",
+        "Puedo cambiar un valor existente o añadir una nueva clave al diccionario."
+      ],
+      "metadata": {
+        "id": "Uxj0skJOQeqa"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for clave, valor in persona.items():\n",
+        "  print(clave, \":\", valor)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0Vh-McJkQcTD",
+        "outputId": "ceb8b3f2-3284-428f-9a27-3adc621fe550"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "nombre : Carla\n",
+            "edad : 31\n",
+            "ciudad : Barcelona\n",
+            "profesion : Futura desarrolladora\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Recorrer un diccionario\n",
+        "\n",
+        "Con `items()` puedo recorrer todas las claves y valores\n",
+        "de un diccionario usando un bucle for."
+      ],
+      "metadata": {
+        "id": "gzFoYE8wQ0pb"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "usuario = {\n",
+        "    \"nombre\": input(\"Introduce tu nombre: \"),\n",
+        "    \"edad\": input(\"Introduce tu edad: \"),\n",
+        "    \"lenguaje\": \"Python\"\n",
+        "\n",
+        "}\n",
+        "\n",
+        "print(\"\\nPerfil del usuario:\")\n",
+        "\n",
+        "for clave, valor in usuario.items():\n",
+        "  print(clave, \":\", valor)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tgFvZSeFQzDE",
+        "outputId": "b41a1a77-a4ad-4d0d-c7a3-d08fc7a8f378"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Introduce tu nombre: Carla\n",
+            "Introduce tu edad: 30\n",
+            "\n",
+            "Perfil del usuario:\n",
+            "nombre : Carla\n",
+            "edad : 30\n",
+            "lenguaje : Python\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Mini proyecto: Perfil de usuario\n",
+        "\n",
+        "He creado un perfil que:\n",
+        "\n",
+        "- guarda información en un diccionario\n",
+        "- pide datos al usuario\n",
+        "- muestra toda la información recorriendo el diccionario\n",
+        "\n",
+        "Este proyecto me ha ayudado a entender cómo representar datos reales."
+      ],
+      "metadata": {
+        "id": "l_7vS13-Rfar"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "tZWpgs4_Rg2w"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "repaso del día:"
+      ],
+      "metadata": {
+        "id": "DXpqtAr9Sea9"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(persona[\"nombre\"])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Xc6kutlJSguU",
+        "outputId": "ef3ea818-ee38-450a-a4ba-3949ac438370"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Carla\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(persona[\"ciudad\"])\n",
+        "print(persona['edad'])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YxSflIkTSosl",
+        "outputId": "476126db-7eea-4d36-d9f9-6b4848170d83"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Barcelona\n",
+            "31\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "jc1FjLd2SwJy"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
